@@ -161,7 +161,7 @@
 
 .github-portfolio-stack {
   position: relative;
-  height: clamp(370px, 44vw, 510px);
+  height: clamp(430px, 50vw, 590px);
   margin-top: clamp(1.8rem, 4vw, 2.6rem);
 }
 
@@ -172,7 +172,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(170px, 22vw, 264px);
+  width: clamp(166px, 20vw, 242px);
   border-radius: 1rem;
   text-decoration: none;
   color: inherit;
@@ -203,31 +203,38 @@
   outline-offset: 3px;
 }
 
-.github-portfolio-card--front {
+.github-portfolio-card--center {
   --x: 0px;
-  --y: 32px;
+  --y: 22px;
   --r: 0deg;
-  z-index: 13;
+  z-index: 14;
 }
 
-.github-portfolio-card--left {
-  --x: -210px;
-  --y: 86px;
-  --r: -14deg;
-  z-index: 10;
+.github-portfolio-card--left-top {
+  --x: -255px;
+  --y: -56px;
+  --r: -16deg;
+  z-index: 12;
 }
 
-.github-portfolio-card--right {
-  --x: 210px;
-  --y: 86px;
-  --r: 14deg;
-  z-index: 10;
+.github-portfolio-card--left-bottom {
+  --x: -215px;
+  --y: 108px;
+  --r: -9deg;
+  z-index: 11;
 }
 
-.github-portfolio-card--top {
-  --x: 0px;
-  --y: -34px;
-  --r: -3deg;
+.github-portfolio-card--right-top {
+  --x: 255px;
+  --y: -56px;
+  --r: 16deg;
+  z-index: 12;
+}
+
+.github-portfolio-card--right-bottom {
+  --x: 215px;
+  --y: 108px;
+  --r: 9deg;
   z-index: 11;
 }
 
@@ -255,6 +262,13 @@
   display: block;
   object-fit: cover;
   object-position: center;
+  filter: brightness(1.1) saturate(1.08) contrast(1.04);
+  transition: filter 220ms ease, transform 220ms ease;
+}
+
+.github-portfolio-card:hover .github-portfolio-card__media img {
+  filter: brightness(1.16) saturate(1.12) contrast(1.06);
+  transform: scale(1.02);
 }
 
 .github-portfolio-card__title {
@@ -269,8 +283,8 @@
 .github-portfolio-folder {
   position: absolute;
   left: 50%;
-  bottom: 5%;
-  width: clamp(330px, 72vw, 820px);
+  bottom: -5%;
+  width: clamp(320px, 67vw, 740px);
   transform: translateX(-50%);
   pointer-events: auto;
   z-index: 20;
@@ -306,16 +320,16 @@
 }
 
 .github-portfolio-folder__back--rear {
-  top: 26px;
-  min-height: clamp(164px, 24vw, 226px);
+  top: 18px;
+  min-height: clamp(140px, 20vw, 190px);
   transform: translateX(calc(-50% + 26px));
   opacity: 0.64;
   z-index: 1;
 }
 
 .github-portfolio-folder__back--mid {
-  top: 14px;
-  min-height: clamp(170px, 25vw, 236px);
+  top: 10px;
+  min-height: clamp(146px, 21vw, 198px);
   transform: translateX(calc(-50% + 14px));
   opacity: 0.9;
 }
@@ -350,14 +364,14 @@
   position: relative;
   z-index: 4;
   margin-top: -1px;
-  min-height: clamp(176px, 26vw, 248px);
-  padding: clamp(1rem, 2vw, 1.4rem);
+  min-height: clamp(152px, 22vw, 210px);
+  padding: clamp(0.9rem, 1.6vw, 1.14rem);
   border-radius: 0 1.32rem 1.32rem 1.32rem;
   border: 1px solid rgba(255, 222, 196, 0.32);
   background:
     radial-gradient(98% 90% at 60% 0%, rgba(255, 180, 125, 0.26) 0%, rgba(255, 180, 125, 0) 66%),
     linear-gradient(160deg, rgba(255, 238, 223, 0.34) 0%, rgba(255, 238, 223, 0.06) 56%, rgba(255, 238, 223, 0.02) 100%),
-    rgba(104, 62, 35, 0.58);
+    rgba(104, 62, 35, 0.48);
   box-shadow:
     0 24px 44px rgba(0, 0, 0, 0.32),
     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
@@ -465,19 +479,29 @@
 }
 
 @media (max-width: 1100px) {
-  .github-portfolio-card--left {
-    --x: -174px;
-    --y: 74px;
+  .github-portfolio-card--left-top {
+    --x: -196px;
+    --y: -38px;
   }
 
-  .github-portfolio-card--right {
-    --x: 174px;
-    --y: 74px;
+  .github-portfolio-card--left-bottom {
+    --x: -166px;
+    --y: 92px;
   }
 
-  .github-portfolio-card--top {
-    --x: 0px;
-    --y: -22px;
+  .github-portfolio-card--right-top {
+    --x: 196px;
+    --y: -38px;
+  }
+
+  .github-portfolio-card--right-bottom {
+    --x: 166px;
+    --y: 92px;
+  }
+
+  .github-portfolio-folder {
+    width: clamp(320px, 72vw, 690px);
+    bottom: -4%;
   }
 }
 

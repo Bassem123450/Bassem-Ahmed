@@ -1,5 +1,6 @@
 import bassemImage from '../assets/Bassem.png';
 import bloodImage from '../assets/Blood (2).png';
+import dashboardImage from '../assets/Grothgrid.png';
 import planImage from '../assets/plan.png';
 import startupImage from '../assets/Startup.png';
 import './GitHubPortfolioSection.css';
@@ -13,7 +14,7 @@ const projectCards = [
     image: startupImage,
     href: 'https://ecommerce-react-app34.netlify.app/',
     alt: 'Startup e-commerce project preview',
-    slot: 'front'
+    slot: 'center'
   },
   {
     id: 'blood',
@@ -23,7 +24,7 @@ const projectCards = [
     image: bloodImage,
     href: 'https://blood-donation-d97751.netlify.app/home#',
     alt: 'Blood donation project preview',
-    slot: 'left'
+    slot: 'left-top'
   },
   {
     id: 'bassem',
@@ -33,7 +34,7 @@ const projectCards = [
     image: bassemImage,
     href: 'https://crud-system-pure-js.netlify.app/',
     alt: 'Bassem CRUD system project preview',
-    slot: 'right'
+    slot: 'left-bottom'
   },
   {
     id: 'plan',
@@ -43,7 +44,17 @@ const projectCards = [
     image: planImage,
     href: 'https://travel-agency-2859fc.netlify.app/',
     alt: 'Travel plan agency project preview',
-    slot: 'top'
+    slot: 'right-top'
+  },
+  {
+    id: 'dashboard',
+    title: 'Projects Dashboard',
+    fileLabel: 'project-dashboard.live',
+    tag: 'DASHBOARD',
+    image: dashboardImage,
+    href: 'https://bassem123450.github.io/my-personal-web/',
+    alt: 'Projects dashboard preview',
+    slot: 'right-bottom'
   }
 ];
 
@@ -97,7 +108,7 @@ export default function GitHubPortfolioSection() {
             <div className="github-portfolio-folder__body">
               <p className="github-portfolio-folder__name">Bassem / Project Files</p>
               <div className="github-portfolio-folder__meta">
-                <span>4 projects</span>
+                <span>5 projects</span>
                 <span>live links</span>
                 <span>mobile ready</span>
               </div>
