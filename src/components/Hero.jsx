@@ -86,6 +86,21 @@ export default function Hero() {
     targetRef.current.y = Math.max(-1, Math.min(1, (relativeY - 0.5) * 2));
   };
 
+  const handleDownloadCv = (event) => {
+    event.preventDefault();
+    try {
+      const link = document.createElement('a');
+      link.href = cvFile;
+      link.setAttribute('download', 'Bassem-Ahmed-CV.pdf');
+      link.rel = 'noopener';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch {
+      window.open(cvFile, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <section
       className="hero"
@@ -121,6 +136,7 @@ export default function Hero() {
               className="btn btn-primary"
               aria-label="Download My CV"
               download="Bassem-Ahmed-CV.pdf"
+              onClick={handleDownloadCv}
             >
               Download My CV
             </a>
