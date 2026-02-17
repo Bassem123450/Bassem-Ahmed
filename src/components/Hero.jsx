@@ -2,12 +2,12 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { FaBehance, FaEnvelope, FaGithub } from 'react-icons/fa';
 import { FaWhatsapp } from 'react-icons/fa6';
-import cvFile from '../assets/Bassem Ahmed - CV.pdf';
 import portraitCutout from '../assets/Me1-cropped.png';
 import portraitFallback from '../assets/Me.png';
 import './Hero.css';
 
 const enterEase = [0.22, 1, 0.36, 1];
+const cvFileUrl = `${import.meta.env.BASE_URL}cv.pdf`;
 
 const socialLinks = [
   {
@@ -86,18 +86,23 @@ export default function Hero() {
     targetRef.current.y = Math.max(-1, Math.min(1, (relativeY - 0.5) * 2));
   };
 
-  const handleDownloadCv = (event) => {
+  const handleDownloadCv = async (event) => {
     event.preventDefault();
     try {
+      const response = await fetch(cvFileUrl, { cache: 'no-store' });
+      if (!response.ok) throw new Error('CV file not found');
+      const blob = await response.blob();
+      const objectUrl = URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = cvFile;
+      link.href = objectUrl;
       link.setAttribute('download', 'Bassem-Ahmed-CV.pdf');
       link.rel = 'noopener';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      URL.revokeObjectURL(objectUrl);
     } catch {
-      window.open(cvFile, '_blank', 'noopener,noreferrer');
+      window.open(cvFileUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -132,7 +137,7 @@ export default function Hero() {
 
           <div className="hero-actions">
             <a
-              href={cvFile}
+              href={cvFileUrl}
               className="btn btn-primary"
               aria-label="Download My CV"
               download="Bassem-Ahmed-CV.pdf"
