@@ -481,7 +481,7 @@
 }
 
 @media (max-width: 560px) {
-  .timeline-section {
+.timeline-section {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -528,6 +528,13 @@
 
   .timeline-company-logo-frame {
     border-radius: 0.54rem;
+  }
+}
+
+@supports (content-visibility: auto) {
+  .timeline-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1200px;
   }
 }
 

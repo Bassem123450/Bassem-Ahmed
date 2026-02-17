@@ -9,6 +9,13 @@
     linear-gradient(180deg, #090709 0%, #070609 48%, #0b0706 100%);
 }
 
+@supports (content-visibility: auto) {
+  .portfolio-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+  }
+}
+
 .portfolio-section::before {
   content: '';
   position: absolute;

@@ -8,6 +8,13 @@
     linear-gradient(180deg, #080607 0%, #09070a 52%, #120a07 100%);
 }
 
+@supports (content-visibility: auto) {
+  .fanDeckSection {
+    content-visibility: auto;
+    contain-intrinsic-size: 980px;
+  }
+}
+
 .fanDeckSection::before {
   content: '';
   position: absolute;

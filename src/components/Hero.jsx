@@ -155,6 +155,9 @@ export default function Hero() {
               }`}
               src={activePortrait}
               alt="Portrait of AI Product Owner"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               onError={() => {
                 if (activePortrait !== portraitFallback) {
                   setActivePortrait(portraitFallback);
